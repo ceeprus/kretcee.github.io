@@ -16,7 +16,7 @@
 title: Kret
 email: test@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-this is a test.
+ this is a test.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://kretcee.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: test
