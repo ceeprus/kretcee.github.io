@@ -1,0 +1,6 @@
+# Build settings
+markdown: kramdown
+remote_theme: fongandrew/hydeout
+plugins:
+  - jekyll-feed
+  - jekyll-seo
