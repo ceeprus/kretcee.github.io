@@ -1,75 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>WIP</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../style.css">
-<link rel="shortcut icon" type="image" href="/img/okayu.png">
+  <head>
+    <title>WIP</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="shortcut icon" type="image" href="/img/okayu.png" />
+  </head>
+  <body style="background-color: #636f75">
+    <!-- Navbar -->
+    <div class="w3-top w3-animate-top w3-center">
+      <div class="w3-black" w3-card>
+        <a href="/index.html" class="w3-bar-item w3-monospace w3-padding-large"
+          >Home</a
+        >
+        <a
+          href="/site/about.html"
+          class="w3-bar-item w3-monospace w3-padding-large"
+          >About</a
+        >
+        <a
+          href="????????????"
+          class="w3-amber-item w3-monospace w3-padding-large"
+          >404</a
+        >
+      </div>
 
-</head>
-    <body style="background-color: #636f75;">
+      <div class="w3-left">
+        <span id="Okayu">0</span> Okayu <br />
+        <span id="OkayuPerSecond">0</span> Okayu per second <br />
 
+        <img src="/img/okayu.png" height="256" onclick="addOkayu(CPower)" />
 
-<!-- Navbar -->
-<div class="w3-top w3-animate-top w3-center">
-    <div class=w3-black w3-card>
-      <a href="/index.html" class="w3-bar-item w3-monospace w3-padding-large">Home</a>
-      <a href="/site/about.html" class="w3-bar-item w3-monospace w3-padding-large">About</a>
-      <a href="????????????"   class="w3-amber-item w3-monospace w3-padding-large">404</a>
-</div>
+        <div class="kret-button">
+          <button onclick="buyUpgrade()">
+            Upgrade [<span id="UpgradePrice">$15</span>] Count [<span
+              id="Upgrade"
+              >0</span
+            >]
+          </button>
+        </div>
 
-<div class="w3-left"> 
-<span id="Okayu">0</span> Okayu <br>
-<span id="OkayuPerSecond">0</span> Okayu per second <br>
+        <script>
+          var CPower = 1;
+          var Okayu = 0;
 
+          var UpgradePrice = 15;
+          var Upgrade = 0;
 
-<img src="/img/okayu.png" height="256"  onclick="addOkayu(CPower)">
+          function buyUpgrade() {
+            if (Okayu >= UpgradePrice) {
+              Okayu = Okayu - UpgradePrice;
+              Upgrade = Upgrade + 1;
+              UpgradePrice = Math.round(UpgradePrice * 1.15);
 
-<div class="kret-button"> 
-<button onclick="buyUpgrade()"> Upgrade [<span id="UpgradePrice">$15</span>]  Count [<span id="Upgrade">0</span>] </button>
-</div>
+              document.getElementById("Okayu").innerHTML = Okayu;
+              document.getElementById("UpgradePrice").innerHTML = UpgradePrice;
+              document.getElementById("Upgrade").innerHTML = Upgrade;
+              updateOkayuPerSecond();
+            }
+          }
 
-<script>
-    var CPower = 1;
-    var Okayu = 0;
-
-    var UpgradePrice = 15;
-    var Upgrade = 0;
-
-    function buyUpgrade() {
-        if (Okayu >= UpgradePrice ) {
-            Okayu = Okayu - UpgradePrice;
-            Upgrade = Upgrade + 1;
-            UpgradePrice = Math.round(UpgradePrice * 1.15);
-
+          function addOkayu(amount) {
+            Okayu = Okayu + amount;
             document.getElementById("Okayu").innerHTML = Okayu;
-            document.getElementById("UpgradePrice").innerHTML = UpgradePrice;
-            document.getElementById("Upgrade").innerHTML = Upgrade;
-            updateOkayuPerSecond();
-    }
-}
+          }
 
-    function addOkayu(amount) {
-        Okayu = Okayu + amount;
-        document.getElementById("Okayu").innerHTML = Okayu;
+          function updateOkayuPerSecond() {
+            OkayuPerSecond = Okayu + Upgrade;
+            document.getElementById("OkayuPerSecond").innerHTML =
+              OkayuPerSecond;
+          }
 
-    }
-
-
-    function updateOkayuPerSecond() {
-        OkayuPerSecond = Okayu + Upgrade;
-        document.getElementById("OkayuPerSecond").innerHTML = OkayuPerSecond;
-    }
-
-setInterval(function() {
-    document.getElementById("Okayu").innerHTML = Okayu;
-    Okayu = Okayu + Upgrade;
-    document.title = Okayu + " Okayu - Okayu Clicker"
-}, 1000); 
-
-
-</script>
-
-</body>
+          setInterval(function () {
+            document.getElementById("Okayu").innerHTML = Okayu;
+            Okayu = Okayu + Upgrade;
+            document.title = Okayu + " Okayu - Okayu Clicker";
+          }, 1000);
+        </script>
+      </div>
+    </div>
+  </body>
 </html>
