@@ -1,86 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>WIP</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../style.css" />
-    <link rel="shortcut icon" type="image" href="/img/okayu.png" />
-  </head>
-  <body style="background-color: #636f75">
-    <!-- Navbar -->
-    <div class="w3-top w3-animate-top w3-center">
-      <div class="w3-black" w3-card>
-        <a href="/index.html" class="w3-bar-item w3-monospace w3-padding-large"
-          >Home</a
-        >
-        <a
-          href="/site/about.html"
-          class="w3-bar-item w3-monospace w3-padding-large"
-          >About</a
-        >
-        <a
-          href="????????????"
-          class="w3-amber-item w3-monospace w3-padding-large"
-          >404</a
-        >
-      </div>
 
-      <div class="w3-left">
-        </span> I still need to learn how to do these (not working properly) <br />
-      <div class="w3-left">
-        <span id="Okayu">0</span> Okayu <br />
-        <span id="OkayuPerSecond">0</span> Okayu per second <br />
+<head>
+  <title>Okayu Clicker</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="shortcut icon" type="image" href="/img/okayu.png" />
+</head>
 
-        <img src="/img/okayu.png" height="256" onclick="addOkayu(CPower)" />
-
-        <div class="kret-button">
-          <button onclick="buyUpgrade()">
-            Upgrade [<span id="UpgradePrice">$15</span>] Count [<span
-              id="Upgrade"
-              >0</span
-            >]
-          </button>
-        </div>
-
-        <script>
-          var CPower = 1;
-          var Okayu = 0;
-
-          var UpgradePrice = 15;
-          var Upgrade = 0;
-
-          function buyUpgrade() {
-            if (Okayu >= UpgradePrice) {
-              Okayu = Okayu - UpgradePrice;
-              Upgrade = Upgrade + 1;
-              UpgradePrice = Math.round(UpgradePrice * 1.15);
-
-              document.getElementById("Okayu").innerHTML = Okayu;
-              document.getElementById("UpgradePrice").innerHTML = UpgradePrice;
-              document.getElementById("Upgrade").innerHTML = Upgrade;
-              updateOkayuPerSecond();
-            }
-          }
-
-          function addOkayu(amount) {
-            Okayu = Okayu + amount;
-            document.getElementById("Okayu").innerHTML = Okayu;
-          }
-
-          function updateOkayuPerSecond() {
-            OkayuPerSecond = Okayu + Upgrade;
-            document.getElementById("OkayuPerSecond").innerHTML =
-              OkayuPerSecond;
-          }
-
-          setInterval(function () {
-            document.getElementById("Okayu").innerHTML = Okayu;
-            Okayu = Okayu + Upgrade;
-            document.title = Okayu + " Okayu - Okayu Clicker";
-          }, 1000);
-        </script>
-      </div>
+<body style="background-color: #636f75">
+  <!-- Navbar -->
+  <div class="w3-top w3-animate-top w3-center">
+    <div class="w3-black" w3-card>
+      <a href="/index.html" class="w3-bar-item w3-monospace w3-padding-large">Home</a>
+      <a href="/site/about.html" class="w3-bar-item w3-monospace w3-padding-large">About</a>
+      <a href="????????????" class="w3-amber-item w3-monospace w3-padding-large">404</a>
     </div>
-  </body>
+
+    <div class="w3-centered">
+      <span id="Okayu">0</span> Okayu<br />
+      <span id="OkayuPerSecond">0</span> Okayu per second<br />
+
+      <div class="w3-centered">
+        <img src="/img/okayu.png" height="256" onclick="addOkayu(CPower)" />
+      </div>
+
+      <br>
+      <div class="w3-centered">
+        <button onclick="buyUpgrade()">
+          Upgrade [<span>$</span><span id="UpgradePrice">5</span>] Count [<span id="Upgrade">0</span>]
+
+        </button>
+        <div class="w3-centered">
+          <button onclick="buyDowngrade()">
+            Upgrade [<span>$</span><span id="DowngradePrice">20</span>] Count [<span id="Downgrade">0</span>]
+          </button>
+
+          <div class="w3-centered">
+            <button onclick="buyCee()">
+              Cee [<span>$</span><span id="CeePrice">500</span>] Count [<span id="Cee">0</span>]
+
+            </button>
+            <div class="w3-centered">
+              <button onclick="buyKret()">
+                Kret [<span>$</span><span id="KretPrice">1000</span>] Count [<span id="Kret">0</span>]
+              </button>
+
+            </div>
+            <script>
+              var CPower = 1;
+              var Okayu = 0;
+
+              var UpgradePrice = 5;
+              var Upgrade = 0;
+
+              var DowngradePrice = 20;
+              var Downgrade = 0;
+
+              var CeePrice = 500;
+              var Cee = 0;
+
+              var KretPrice = 1000;
+              var Kret = 0;
+
+              function buyUpgrade() {
+                if (Okayu >= UpgradePrice) {
+                  Okayu = Okayu - UpgradePrice;
+                  Upgrade = Upgrade + 1;
+                  UpgradePrice = Math.round(UpgradePrice * 2);
+
+                  document.getElementById("Okayu").innerHTML = Okayu;
+                  document.getElementById("UpgradePrice").innerHTML = UpgradePrice;
+                  document.getElementById("Upgrade").innerHTML = Upgrade;
+                  updateOkayuPerSecond();
+                }
+              }
+
+              function buyDowngrade() {
+                if (Okayu >= DowngradePrice) {
+                  Okayu = Okayu - DowngradePrice;
+                  Downgrade = Downgrade + 1;
+                  DowngradePrice = Math.round(DowngradePrice * 2);
+
+                  document.getElementById("Okayu").innerHTML = Okayu;
+                  document.getElementById("DowngradePrice").innerHTML = DowngradePrice;
+                  document.getElementById("Downgrade").innerHTML = Downgrade;
+                  updateOkayuPerSecond();
+                }
+              }
+
+              function buyCee() {
+                if (Okayu >= CeePrice) {
+                  Okayu = Okayu - CeePrice;
+                  Cee = Cee + 1;
+                  CeePrice = Math.round(CeePrice * 2.5);
+
+                  document.getElementById("Okayu").innerHTML = Okayu;
+                  document.getElementById("CeePrice").innerHTML = CeePrice;
+                  document.getElementById("Cee").innerHTML = Cee;
+                  updateOkayuPerSecond();
+                }
+              }
+
+              function buyKret() {
+                if (Okayu >= KretPrice) {
+                  Okayu = Okayu - KretPrice;
+                  Kret = Kret + 1;
+                  KretPrice = Math.round(KretPrice * 3);
+
+                  document.getElementById("Okayu").innerHTML = Okayu;
+                  document.getElementById("KretPrice").innerHTML = KretPrice;
+                  document.getElementById("Kret").innerHTML = Kret;
+                  updateOkayuPerSecond();
+                }
+              }
+
+              function addOkayu(amount) {
+                Okayu = Okayu + amount;
+                document.getElementById("Okayu").innerHTML = Okayu;
+              }
+
+              function updateOkayuPerSecond() {
+                OkayuPerSecond = Upgrade + Downgrade * 5 + Cee * 100 + Kret * 200;
+                document.getElementById("OkayuPerSecond").innerHTML = OkayuPerSecond;
+              }
+
+              setInterval(function () {
+                document.getElementById("Okayu").innerHTML = Okayu;
+                Okayu = Okayu + Upgrade;
+                Okayu = Okayu + Downgrade * 5;
+                Okayu = Okayu + Cee * 100;
+                Okayu = Okayu + Kret * 200;
+
+                document.title = Okayu + " Okayu ";
+              }, 1000); 
+            </script>
+          </div>
+        </div>
+</body>
+
 </html>
