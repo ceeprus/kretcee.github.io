@@ -22,122 +22,135 @@
       <span id="Okayu">0</span> Okayu<br />
       <span id="OkayuPerSecond">0</span> Okayu per second<br />
 
-      <div class="w3-centered kretNoSelect">
+      <div class="w3-centered kretNoSelect ButtonClick">
         <img draggable="false" src="/img/okayu.png" height="256" onclick="addOkayu(CPower)" />
       </div>
 
-      <br>
-      <div class="w3-centered">
+      <br />
+
+      <divA class="w3-centered">
         <button onclick="buyUpgrade()">
           Upgrade <span>$</span><span id="UpgradePrice">5</span> Count [<span id="Upgrade">0</span>]
-
         </button>
-        <div class="w3-centered">
-          <button onclick="buyDowngrade()">
-            Upgrade <span>$</span><span id="DowngradePrice">20</span> Count [<span id="Downgrade">0</span>]
-          </button>
+      </divA>
 
-          <div class="w3-centered">
-            <button onclick="buyCee()">
-              Cee <span>$</span><span id="CeePrice">500</span> Count [<span id="Cee">0</span>]
+      <divB class="w3-centered">
+        <button onclick="buyDowngrade()">
+          Downgrade <span>$</span><span id="DowngradePrice">20</span> Count
+          [<span id="Downgrade">0</span>]
+        </button>
+      </divB>
 
-            </button>
-            <div class="w3-centered">
-              <button onclick="buyKret()">
-                Kret <span>$</span><span id="KretPrice">1000</span> Count [<span id="Kret">0</span>]
-              </button>
+      <divC class="w3-centered">
+        <button onclick="buyCee()">
+          Cee <span>$</span><span id="CeePrice">500</span> Count [<span id="Cee">0</span>]
+        </button>
+      </divC>
 
-            </div>
-            <script>
-              var CPower = 1;
-              var Okayu = 0;
+      <divD class="w3-centered">
+        <button onclick="buyKret()">
+          Kret <span>$</span><span id="KretPrice">1000</span> Count [<span id="Kret">0</span>]
+        </button>
+      </divD>
 
-              var UpgradePrice = 5;
-              var Upgrade = 0;
+      <script>
+        // PRICE LIST
+        var CPower = 100000;
+        var Okayu = 0;
 
-              var DowngradePrice = 20;
-              var Downgrade = 0;
+        var UpgradePrice = 5;
+        var Upgrade = 0;
 
-              var CeePrice = 500;
-              var Cee = 0;
+        var DowngradePrice = 20;
+        var Downgrade = 0;
 
-              var KretPrice = 1000;
-              var Kret = 0;
+        var CeePrice = 500;
+        var Cee = 0;
 
-              function buyUpgrade() {
-                if (Okayu >= UpgradePrice) {
-                  Okayu = Okayu - UpgradePrice;
-                  Upgrade = Upgrade + 1;
-                  UpgradePrice = Math.round(UpgradePrice * 2);
+        var KretPrice = 1000;
+        var Kret = 0;
 
-                  document.getElementById("Okayu").innerHTML = Okayu;
-                  document.getElementById("UpgradePrice").innerHTML = UpgradePrice;
-                  document.getElementById("Upgrade").innerHTML = Upgrade;
-                  updateOkayuPerSecond();
-                }
-              }
+        // PRICE MULTIPLIER LIST
+        function buyUpgrade() {
+          if (Okayu >= UpgradePrice) {
+            Okayu = Okayu - UpgradePrice;
+            Upgrade = Upgrade + 1;
+            UpgradePrice = Math.round(UpgradePrice * 1.21);
 
-              function buyDowngrade() {
-                if (Okayu >= DowngradePrice) {
-                  Okayu = Okayu - DowngradePrice;
-                  Downgrade = Downgrade + 1;
-                  DowngradePrice = Math.round(DowngradePrice * 2);
+            document.getElementById("Okayu").innerHTML = Okayu;
+            document.getElementById("UpgradePrice").innerHTML = UpgradePrice;
+            document.getElementById("Upgrade").innerHTML = Upgrade;
+            updateOkayuPerSecond();
+          }
+        }
 
-                  document.getElementById("Okayu").innerHTML = Okayu;
-                  document.getElementById("DowngradePrice").innerHTML = DowngradePrice;
-                  document.getElementById("Downgrade").innerHTML = Downgrade;
-                  updateOkayuPerSecond();
-                }
-              }
+        function buyDowngrade() {
+          if (Okayu >= DowngradePrice) {
+            Okayu = Okayu - DowngradePrice;
+            Downgrade = Downgrade + 1;
+            DowngradePrice = Math.round(DowngradePrice * 1.22);
 
-              function buyCee() {
-                if (Okayu >= CeePrice) {
-                  Okayu = Okayu - CeePrice;
-                  Cee = Cee + 1;
-                  CeePrice = Math.round(CeePrice * 2.5);
+            document.getElementById("Okayu").innerHTML = Okayu;
+            document.getElementById("DowngradePrice").innerHTML =
+              DowngradePrice;
+            document.getElementById("Downgrade").innerHTML = Downgrade;
+            updateOkayuPerSecond();
+          }
+        }
 
-                  document.getElementById("Okayu").innerHTML = Okayu;
-                  document.getElementById("CeePrice").innerHTML = CeePrice;
-                  document.getElementById("Cee").innerHTML = Cee;
-                  updateOkayuPerSecond();
-                }
-              }
+        function buyCee() {
+          if (Okayu >= CeePrice) {
+            Okayu = Okayu - CeePrice;
+            Cee = Cee + 1;
+            CeePrice = Math.round(CeePrice * 1.23);
 
-              function buyKret() {
-                if (Okayu >= KretPrice) {
-                  Okayu = Okayu - KretPrice;
-                  Kret = Kret + 1;
-                  KretPrice = Math.round(KretPrice * 3);
+            document.getElementById("Okayu").innerHTML = Okayu;
+            document.getElementById("CeePrice").innerHTML = CeePrice;
+            document.getElementById("Cee").innerHTML = Cee;
+            updateOkayuPerSecond();
+          }
+        }
 
-                  document.getElementById("Okayu").innerHTML = Okayu;
-                  document.getElementById("KretPrice").innerHTML = KretPrice;
-                  document.getElementById("Kret").innerHTML = Kret;
-                  updateOkayuPerSecond();
-                }
-              }
+        function buyKret() {
+          if (Okayu >= KretPrice) {
+            Okayu = Okayu - KretPrice;
+            Kret = Kret + 1;
+            KretPrice = Math.round(KretPrice * 1.24);
 
-              function addOkayu(amount) {
-                Okayu = Okayu + amount;
-                document.getElementById("Okayu").innerHTML = Okayu;
-              }
+            document.getElementById("Okayu").innerHTML = Okayu;
+            document.getElementById("KretPrice").innerHTML = KretPrice;
+            document.getElementById("Kret").innerHTML = Kret;
+            updateOkayuPerSecond();
+          }
+        }
 
-              function updateOkayuPerSecond() {
-                OkayuPerSecond = Upgrade + Downgrade * 5 + Cee * 100 + Kret * 200;
-                document.getElementById("OkayuPerSecond").innerHTML = OkayuPerSecond;
-              }
+        function addOkayu(amount) {
+          Okayu = Okayu + amount;
+          document.getElementById("Okayu").innerHTML = Okayu;
+        }
 
-              setInterval(function () {
-                document.getElementById("Okayu").innerHTML = Okayu;
-                Okayu = Okayu + Upgrade;
-                Okayu = Okayu + Downgrade * 5;
-                Okayu = Okayu + Cee * 100;
-                Okayu = Okayu + Kret * 200;
+        // UPDATE PER SEC
 
-                document.title = Okayu + " Okayu ";
-              }, 1000); 
-            </script>
-          </div>
-        </div>
+        function updateOkayuPerSecond() {
+          OkayuPerSecond = Upgrade + Downgrade * 5 + Cee * 100 + Kret * 200;
+          document.getElementById("OkayuPerSecond").innerHTML =
+            OkayuPerSecond;
+        }
+
+        // GAIN LIST
+
+        setInterval(function () {
+          document.getElementById("Okayu").innerHTML = Okayu;
+          Okayu = Okayu + Upgrade;
+          Okayu = Okayu + Downgrade * 5;
+          Okayu = Okayu + Cee * 100;
+          Okayu = Okayu + Kret * 200;
+
+          document.title = Okayu + " Okayu ";
+        }, 1000);
+      </script>
+    </div>
+  </div>
 </body>
 
 </html>
