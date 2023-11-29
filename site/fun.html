@@ -18,36 +18,41 @@
       <a href="????????????" class="w3-amber-item w3-monospace w3-padding-large">404</a>
     </div>
 
-    <div class="w3-centered kretNoSelect">
+    <div class="w3-centered">
       <span id="Okayu">0</span> Okayu<br />
       <span id="OkayuPerSecond">0</span> Okayu per second<br />
+      <br>
+      <br>
+      <br>
 
-      <div class="w3-centered kretNoSelect ButtonClick">
+      <div class="w3-centered kretNoSelect buttonclick">
         <img draggable="false" src="/img/okayu.png" height="256" onclick="addOkayu(CPower)" />
       </div>
 
-      <br />
+      <br>
+      <br>
+      <br>
 
-      <divA class="w3-centered">
+      <divA class="w3-centered kret-button">
         <button onclick="buyUpgrade()">
           Upgrade <span>$</span><span id="UpgradePrice">5</span> Count [<span id="Upgrade">0</span>]
         </button>
       </divA>
 
-      <divB class="w3-centered">
+      <divB class="w3-centered kret-button">
         <button onclick="buyDowngrade()">
           Downgrade <span>$</span><span id="DowngradePrice">20</span> Count
           [<span id="Downgrade">0</span>]
         </button>
       </divB>
 
-      <divC class="w3-centered">
+      <divC class="w3-centered kret-button">
         <button onclick="buyCee()">
           Cee <span>$</span><span id="CeePrice">500</span> Count [<span id="Cee">0</span>]
         </button>
       </divC>
 
-      <divD class="w3-centered">
+      <divD class="w3-centered kret-button">
         <button onclick="buyKret()">
           Kret <span>$</span><span id="KretPrice">1000</span> Count [<span id="Kret">0</span>]
         </button>
@@ -132,7 +137,7 @@
         // UPDATES PER SEC
 
         function updateOkayuPerSecond() {
-          OkayuPerSecond = Upgrade + Downgrade * 5 + Cee * 100 + Kret * 200;
+          OkayuPerSecond = Upgrade * 1.2 + Downgrade * 5.2 + Cee * 100.2 + Kret * 200.3;
           document.getElementById("OkayuPerSecond").innerHTML =
             OkayuPerSecond;
         }
